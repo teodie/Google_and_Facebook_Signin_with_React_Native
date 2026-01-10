@@ -96,7 +96,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       }
     })
 
-    console.log(data.url, error)
 
     if (error) throw error
 
@@ -111,7 +110,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const token = parsed.queryParams?.access_token;
       const refresh = parsed.queryParams?.refresh_token;
 
-      console.log({ token, refresh })
       if (token && refresh) {
         await supabase.auth.setSession({
           access_token: token as string,
