@@ -32,6 +32,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     getUser();
   }, [])
 
+  
+
   const getUser = async () => {
     setIsLoadingUser(true)
 
@@ -80,8 +82,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     await getUser()
 
     setIsLoadingUser(false)
-
-    router.replace('/')
   }
 
   const signInWithGoogle = async () => {
@@ -121,8 +121,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     await getUser()
 
     setIsLoadingUser(false)
-
-    router.replace('/')
   }
 
   const signOut = async () => {
