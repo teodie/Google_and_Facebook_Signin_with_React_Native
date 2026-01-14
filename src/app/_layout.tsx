@@ -6,23 +6,30 @@ import { useAuth } from '../hooks/useAuth';
 export function RoutGaurd() {
   const { session } = useAuth()
 
+  const isStorybook = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true"
   return (
-    <Stack>
-      <Stack.Protected guard={session === null}>
-        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-      </Stack.Protected>
-      <Stack.Protected guard={session !== null}>
-        <Stack.Screen name='(protected)' options={{ headerShown: false }} />
-      </Stack.Protected>
-    </Stack>
+    isStorybook
+      ?
+      <Stack>
+        <Stack.Screen name='storybook' options={{ headerShown: false }} />
+      </Stack>
+      :
+      <Stack>
+        <Stack.Protected guard={session === null}>
+          <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+        </Stack.Protected>
+        <Stack.Protected guard={session !== null}>
+          <Stack.Screen name='(protected)' options={{ headerShown: false }} />
+        </Stack.Protected>
+      </Stack>
   )
 }
 
 export default function RootLayout() {
 
   return (
-    <AuthProvider>
-      <RoutGaurd />
-    </AuthProvider>
+      <AuthProvider>
+        <RoutGaurd />
+      </AuthProvider>
   )
 }

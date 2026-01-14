@@ -3,6 +3,14 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": ".",
-    "paths": { "@/*": ["./*"] }
-  }
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    ".rnstorybook/stories/*.tsx", // Ensure Storybook folder is included
+    "nativewind-env.d.ts"
+  ]
 }

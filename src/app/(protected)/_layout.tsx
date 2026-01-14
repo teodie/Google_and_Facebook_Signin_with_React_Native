@@ -4,7 +4,7 @@ import { Redirect, Stack } from "expo-router";
 export default function ProtectedLayout() {
  const { session } = useAuth()
  
- if( !session ) return <Redirect href={"/login"} /> 
+//  if( !session ) return <Redirect href={"/login"} /> 
 
   return (
     <Stack>

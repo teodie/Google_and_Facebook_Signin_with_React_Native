@@ -9,4 +9,4 @@ const config = getDefaultConfig(__dirname);
 // Configuration for NativeWind
 const nativeWindConfig = withNativeWind(config, { input: './global.css' })
 // Configuration for Storybook wrap the nativewind config & default config
-module.exports = withStorybook(nativeWindConfig)
+module.exports = withStorybook(nativeWindConfig, {enabled: process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true"})
