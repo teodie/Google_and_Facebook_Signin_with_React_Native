@@ -1,4 +1,4 @@
-import '@/global.css'
+import '../../global.css'
 import { Stack } from 'expo-router'
 import { AuthProvider } from '@/src/utils/auth-context';
 import { useAuth } from '../hooks/useAuth';
